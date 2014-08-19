@@ -1,0 +1,357 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h1>Agenda</h1>
+    </hgroup>
+    <article>
+      <ul>
+        <br />
+        <li>Chrome OS</li>
+        <br />
+        <li>JavaScript</li>
+        <br />
+        <li>Chrome Package</li>
+        <br />
+        <li>Your First Demo</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Chrome OS & JavaScript</h2>
+      <h3>Introduction</h3>
+    </hgroup>
+    <article>
+      <p>Chrome OS</p>
+      <ul class="build fade">
+        <li>Based on cloud</li>
+        <li>Chromebook</li>
+        <li>Trend?</li>
+      </ul>
+      <p>JavaScript</p>
+      <ul class="build fade">
+        <li>Default script language of browsers</li>
+        <li>
+          Nodejs
+          <ul>
+            <li>server-side</li>
+            <li>high concurrency</li>
+          </ul>
+        </li>
+        <li>Many extensions</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Chrome Package/Extension</h2>
+      <h3>Introduction</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Introduction</h2>
+    </hgroup>
+    <article class="vcenter">
+      <p>A zipped bundle of files<p>
+      <ul>
+        <li>A <b>manifest file</b></li>
+        <li><b>HTML files</b></li>
+        <li><b>JavaScript files</b></li>
+        <li>Other files, like images</li>
+      </ul>
+      <p>
+        <a href="https://developer.chrome.com/extensions/overview">For details</a>
+      </p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Extenstion - Two Forms</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+
+        <p>Browser Action</p>
+        <img src="images/browser-action.png" alt="Browser Action" title="Browser Action" />
+
+        <p>Page Action</p>
+        <img src="images/page-action.png" alt="Page Action" title="Page Action" />
+
+      <footer class="source">source: <a href="https://developer.chrome.com/extensions/overview"><b>https://developer.chrome.com/extensions/overview</b></a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Extenstion - Architecture</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <table>
+          <tr>
+            <td><img src="images/arch-1.gif" alt="Background Page" title="Background Page" /></td>
+            <td><img src="images/arch-2.gif" alt="UI Pages" title="UI Pages" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/arch-3.gif" alt="Content Script" title="Content Script" /></td>
+            <td><img src="images/arch-cs.gif" alt="Architecture" title="Architecture" /></td>
+          </tr>
+        </table>
+      <footer class="source">source: <a href="https://developer.chrome.com/extensions/overview"><b>https://developer.chrome.com/extensions/overview</b></a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Extension - Manifest</h2>
+    </hgroup>
+    <article>
+      <p><a href="https://developer.chrome.com/extensions/manifest">Terms of <code>Manifest.json</code></a></p>
+      <pre class="prettyprint" data-lang="json">
+        {
+          <b>"manifest_version"</b>: 2,
+
+          <b>"name"</b>: "One-click Kittens",
+          "description": "This extension demonstrates a browser action with kittens.",
+          <b>"version"</b>: "1.0",
+
+          <b>"permissions"</b>: [ "https://secure.flickr.com/" ],
+          <b>"browser_action"</b>: {
+            "default_icon": "icon.png",
+            "default_popup": "popup.html"
+          }
+        }
+      </pre>
+      <footer class="source">source: <a href="https://developer.chrome.com/extensions/getstarted"><b>https://developer.chrome.com/extensions/getstarted</b></a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2><a href="http://www.sudoku.name/">Sudoku</a></h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/puzzle-dark1.jpg" alt="Sudoku" title="Sudoku">
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Let's run!</h2>
+      <h3>Demo</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2><a href="https://github.com/sap-vt-ohh/sudoku_solver/blob/master/manifest.json">Manifest</a></h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="json">
+        {
+          "manifest_version": 2,
+          "name": "Sudoku Solver",
+          "version": "1.0",
+
+          "description": "Auto generator for http://www.sudoku.name/",
+          "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" },
+
+          "permissions": [ "http://www.sudoku.name/" ],
+
+          "background": { "scripts": ["js/background.js"] },
+          "content_scripts": [
+            {
+              "matches": ["http://www.sudoku.name/*"],
+              "js": ["js/lib/jquery.js", "js/Sudoku.js", "js/solve.js"],
+              "run_at": "document_end"
+            }
+          ],
+
+          "page_action": { "default_icon": "img/icon48.png", "default_title": "Sudoku Solver" }
+        }
+      </pre>
+      <footer class="source">source: <a href="https://developer.chrome.com/extensions/getstarted"><b>https://developer.chrome.com/extensions/getstarted</b></a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Content Script - solve.js</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="javascript">
+        var i, j, input;
+        var mp = new Array();
+        for (i = 0; i &lt; 9; i += 1) 
+          mp.push(new Array());       
+        <b>  
+        for (i = 0; i &lt; 9; i += 1) {
+          for (j = 0; j &lt; 9; j += 1) {
+            input = $('#c' + (i * 9 + j + 1));
+            mp[i][j] = input.val() || 10;     
+          }
+        }
+        </b>
+        <b>
+          var sudoku = new Sudoku(mp);
+          mp = sudoku.getResult();
+        </b>
+        <b>
+        for (i = 0; i &lt; 9; i += 1) {
+          for (j = 0; j &lt; 9; j += 1) {
+            $('#c' + (i * 9 + j + 1)).val("" + mp[i][j]);   
+          }
+        }
+        </b>
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Content Script - Sudoku.js</h2>
+    </hgroup>
+    <article class="vcenter">
+      <ul>
+        <li><b>Depth-First Search</b></li>
+        <li>For Reuse</li>
+        <li><a href="http://en.wikipedia.org/wiki/Dancing_Links">*Dancing Links</a></li>
+      </ul>
+
+      <pre class="prettyprint" data-lang="javascript">
+        function Sudoku(matrix) {
+          ...
+        }
+
+        Sudoku.prototype._search = function (mp, x, y) {
+          ...
+        };
+
+        Sudoku.prototype._check = function(mp, x, y) {
+          ...
+        };
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>*Background.js</h2>
+    </hgroup>
+    <article class="vcenter">
+      <p>Optional</p>
+      <p>You can use this file to add the icon to address bar</p>
+
+      <pre class="prettyprint" data-lang="javascript">
+      
+      chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+
+        var reg = /^.*\/\/www\.sudoku\.name\/.*$/;
+
+        if (reg.test(tab.url)) {
+          chrome.pageAction.show(tabId);
+        }
+      });
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Done!</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/sudoku.png" alt="Sudoku Solver" title="Sudoku Solver">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>We are going on</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <p>See more about extension development - <a href="https://developer.chrome.com/extensions/devguide">Developer's Guide</a></p>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/Background.jpg)">
+    <aside class="note">
+      <h2 class="white">You're more powerful than you think!</h2>
+    </aside>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>One-Hour Hackathon</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
